@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wiaam Hassan Abdo – Computer Science Student</title>
+<meta name="description" content="Portfolio of Wiaam Hassan Abdo, a computer science student who builds web and Android apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f6fb;--surface:#ffffff;--ink:#0f172a;--muted:#55607a;--line:#dde2ef;--accent:#2f5bff;--accent-ink:#ffffff;--warm:#ff6b4a;
+  --head:'Sora','Segoe UI',Arial,sans-serif;--body:'IBM Plex Sans','Segoe UI',Arial,sans-serif;--mono:'JetBrains Mono',Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0b1020;--surface:#131a30;--ink:#e8ecf8;--muted:#98a2c0;--line:#232c48;--accent:#7a97ff;--accent-ink:#0b1020}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0b1020;--surface:#131a30;--ink:#e8ecf8;--muted:#98a2c0;--line:#232c48;--accent:#7a97ff;--accent-ink:#0b1020}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.05rem/1.7 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0;letter-spacing:-.03em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+section{padding:6rem 0}
+h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:36rem;margin:0 0 2.5rem}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.bar{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font:800 1.2rem var(--head);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.logo i{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font:800 .95rem var(--head);font-style:normal}
+nav ul{display:flex;gap:.4rem;list-style:none;margin:0;padding:0;align-items:center}
+nav a{text-decoration:none;font:500 .95rem var(--head);padding:.5rem .9rem;border-radius:99px}
+nav a:hover{background:var(--surface)}
+nav a.cta{background:var(--ink);color:var(--bg);margin-left:.5rem}
+.burger{display:none;background:var(--surface);border:1px solid var(--line);border-radius:10px;width:44px;height:44px;cursor:pointer;color:var(--ink)}
+.burger span{display:block;width:20px;height:2px;background:currentColor;margin:5px auto;transition:transform .2s,opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* hero */
+.hero{padding:5rem 0 4rem}
+.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:3rem;align-items:center}
+.status{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:.35rem 1rem;font:500 .9rem var(--head);margin-bottom:1.5rem}
+.status::before{content:"";width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800}
+.hero p{font-size:1.2rem;color:var(--muted);max-width:32rem;margin:1.4rem 0 2rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;font:600 1rem var(--head);padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-2px)}
+/* code window */
+.code{background:#0b1020;color:#c9d3f5;border-radius:16px;border:1px solid #232c48;box-shadow:0 30px 60px -25px rgba(47,91,255,.45);overflow:hidden;font:400 .95rem/1.75 var(--mono)}
+.code .top{display:flex;gap:7px;align-items:center;padding:.8rem 1rem;border-bottom:1px solid #232c48;background:#10172c}
+.code .top i{width:11px;height:11px;border-radius:50%;background:#3a4568}
+.code .top i:first-child{background:#ff6b4a}.code .top i:nth-child(2){background:#f2c14e}.code .top i:nth-child(3){background:#4ade80}
+.code .top span{margin-left:auto;color:#6c79a3;font-size:.8rem}
+.code pre{margin:0;padding:1.2rem 1.4rem;overflow-x:auto}
+.k{color:#ff8f75}.s{color:#8fe3b0}.p{color:#9db4ff}.c{color:#6c79a3}
+.cur{display:inline-block;width:8px;height:1.1em;background:#9db4ff;vertical-align:-3px;animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+.about p{margin:0 0 1rem;color:var(--muted);font-size:1.12rem}
+.facts{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:.5rem 1.5rem}
+.facts div{display:flex;justify-content:space-between;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+.facts div:last-child{border:0}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:600;text-align:right}
+.facts dl{margin:0}
+/* skills */
+.skillrow{display:grid;grid-template-columns:200px 1fr;gap:1rem 2rem;padding:1.5rem 0;border-top:1px solid var(--line);align-items:center}
+.skillrow:last-child{border-bottom:1px solid var(--line)}
+.skillrow h3{font-size:1.15rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:0}
+.chips li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.35rem .9rem;font:500 .95rem var(--head)}
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.6rem}
+.card{text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:0;cursor:pointer;color:inherit;font:inherit;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-6px);border-color:var(--accent)}
+.shot{height:200px;display:grid;place-items:center;position:relative}
+.g1{background:linear-gradient(135deg,#2f5bff,#7a5cff)}.g2{background:linear-gradient(135deg,#0ea5a4,#2f5bff)}.g3{background:linear-gradient(135deg,#ff6b4a,#f2a33c)}
+.win{width:72%;height:68%;background:rgba(255,255,255,.95);border-radius:10px;padding:10px 12px;box-shadow:0 18px 30px -12px rgba(0,0,0,.35);display:grid;align-content:start;gap:7px}
+.win b{display:block;height:8px;border-radius:4px;background:#d7dcee}
+.win b:nth-child(1){width:35%;background:#9aa6d4}.win b:nth-child(2){width:90%}.win b:nth-child(3){width:70%}.win b:nth-child(4){width:80%}
+.win .bars{display:flex;align-items:flex-end;gap:6px;height:34px}
+.win .bars u{flex:1;background:#2f5bff;border-radius:3px 3px 0 0;text-decoration:none;opacity:.8}
+.phone{width:84px;height:84%;background:#fff;border:5px solid #1b2340;border-radius:18px;padding:10px 8px;display:grid;align-content:start;gap:7px;box-shadow:0 18px 30px -12px rgba(0,0,0,.4)}
+.phone b{display:block;height:9px;border-radius:4px;background:#e2e6f3}
+.phone b:first-child{background:#ff6b4a;width:60%}
+.card .body{padding:1.5rem}
+.card h3{font-size:1.3rem;margin-bottom:.5rem}
+.card p{margin:0 0 1rem;color:var(--muted);font-size:1rem}
+.tags{display:flex;gap:.45rem;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+.tags li{font:500 .8rem var(--mono);background:var(--bg);border-radius:6px;padding:.2rem .6rem;color:var(--muted)}
+.more{display:block;margin-top:1.1rem;font:600 .95rem var(--head);color:var(--accent)}
+/* modal */
+dialog{border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);max-width:540px;width:calc(100% - 2rem);padding:2rem}
+dialog::backdrop{background:rgba(5,10,25,.65);backdrop-filter:blur(3px)}
+dialog h3{font-size:1.7rem;margin-bottom:1rem;padding-right:2rem}
+dialog .x{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.4rem;cursor:pointer}
+dialog p{margin:0 0 1rem;color:var(--muted)}
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+.mail{display:inline-block;font:700 clamp(1.1rem,2.4vw,1.5rem) var(--head);margin-top:1rem;word-break:break-all;border-bottom:3px solid var(--accent);text-decoration:none}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:2rem}
+form{display:grid;gap:1.1rem}
+label{font:600 .95rem var(--head);display:grid;gap:.4rem}
+input,textarea{font:inherit;padding:.8rem 1rem;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+textarea{min-height:130px;resize:vertical}
+.result{display:grid;gap:.7rem;border-top:1px solid var(--line);padding-top:1rem}.result p{margin:0;color:var(--muted)}.result .btn{text-align:center}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{margin-left:1.2rem}
+@media (max-width:820px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:72px;background:var(--bg);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;align-items:stretch;padding:.5rem 1.5rem 1.2rem}
+  nav a{display:block;padding:.9rem 1rem;font-size:1.1rem}
+  nav a.cta{margin:.5rem 0 0;text-align:center}
+  .hero .wrap,.about,.contact .wrap{grid-template-columns:1fr}
+  .skillrow{grid-template-columns:1fr}
+  section{padding:4rem 0}
+  footer a{margin:0 1.2rem 0 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top"><i>WA</i>Wiaam Abdo</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a class="cta" href="#contact">Contact me</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="status">Open to internships and freelance</span>
+        <h1>Wiaam Hassan Abdo</h1>
+        <p>Computer science student building web and Android apps for real businesses: gyms, stores, and service marketplaces.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="https://github.com/wiaamabdo2006-creator">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/wiaam-abdo-736551387/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="code" aria-hidden="true">
+        <div class="top"><i></i><i></i><i></i><span>wiaam.js</span></div>
+<pre><span class="k">const</span> <span class="p">wiaam</span> = {
+  role: <span class="s">"CS student"</span>,
+  school: <span class="s">"Lebanese University"</span>,
+  stack: [<span class="s">"PHP"</span>, <span class="s">"Kotlin"</span>,
+          <span class="s">"Java"</span>, <span class="s">"MySQL"</span>],
+  location: <span class="s">"Baalbeck, Lebanon"</span>,
+  openTo: [<span class="s">"internships"</span>, <span class="s">"freelance"</span>],
+};<span class="cur"></span></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2>About me</h2>
+        <p>I’m a computer science student who likes turning everyday business problems into working software. So far I’ve built three projects: a gym management system, a point-of-sale (POS) system, and a service marketplace app.</p>
+        <p>I’m looking for internships and entry-level roles where I can keep learning and help ship real products. I study at the Lebanese University and expect to graduate in 2027.</p>
+      </div>
+      <div class="facts">
+        <dl>
+          <div><dt>Role</dt><dd>Computer science student</dd></div>
+          <div><dt>Based in</dt><dd>Baalbeck, Lebanon</dd></div>
+          <div><dt>Studying</dt><dd>Lebanese University, 2027</dd></div>
+          <div><dt>Available for</dt><dd>Internships, freelance</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="lead">The languages and tools I use to build full projects, from the database to the screen.</p>
+      <div class="skillrow"><h3>Languages</h3><ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>Java</li><li>Kotlin</li></ul></div>
+      <div class="skillrow"><h3>Frameworks</h3><ul class="chips"><li>ASP.NET</li></ul></div>
+      <div class="skillrow"><h3>Databases</h3><ul class="chips"><li>MySQL</li><li>Firebase</li></ul></div>
+      <div class="skillrow"><h3>Tools</h3><ul class="chips"><li>Git</li><li>GitHub</li><li>Android Studio</li></ul></div>
+      <div class="skillrow"><h3>Languages spoken</h3><ul class="chips"><li>Arabic</li><li>English</li></ul></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Featured projects</h2>
+      <p class="lead">Three projects I designed and built. Select one to see the details.</p>
+      <div class="projects">
+        <button class="card" data-i="0"><div class="shot g1"><div class="win"><b></b><b></b><b></b><div class="bars"><u style="height:40%"></u><u style="height:70%"></u><u style="height:55%"></u><u style="height:90%"></u></div></div></div><div class="body"><h3>Gym Management System</h3><p>Manages gym members and subscriptions.</p><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li></ul><span class="more">View details</span></div></button>
+        <button class="card" data-i="1"><div class="shot g2"><div class="win"><b></b><b></b><b></b><b></b><b></b></div></div><div class="body"><h3>POS System</h3><p>Handles sales and checkout for a store.</p><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li><li>MySQL</li></ul><span class="more">View details</span></div></button>
+        <button class="card" data-i="2"><div class="shot g3"><div class="phone"><b></b><b></b><b></b><b></b><b></b></div></div><div class="body"><h3>Service Marketplace App</h3><p>Connects customers with service providers.</p><ul class="tags"><li>Android Studio</li><li>Kotlin</li><li>XML</li><li>Firebase</li></ul><span class="more">View details</span></div></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div>
+        <h2>Let’s work together.</h2>
+        <p class="lead">Looking for an intern or a developer for a small project? Send me a message or email me directly.</p>
+        <a class="mail" href="mailto:wiaamabdo2006@gmail.com">wiaamabdo2006@gmail.com</a>
+        <!-- PHONE: replace the two numbers below. href has no spaces (+96171123456), the visible text can have spaces. -->
+        <p style="margin:1.2rem 0 0;font:600 1.1rem var(--head)">Phone: <a href="tel:+96170579751">+961 70 579 751</a></p>
+        <!-- WHATSAPP (optional): remove this comment and replace 961XXXXXXXX with your number, no plus and no spaces.
+        <p style="margin:.6rem 0 0"><a class="btn" href="https://wa.me/961XXXXXXXX" target="_blank" rel="noopener">Message on WhatsApp</a></p> -->
+
+      </div>
+      <div class="panel">
+        <form id="form">
+          <label>Name<input name="name" required autocomplete="name"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Message<textarea name="msg" required></textarea></label>
+          <button class="btn primary" type="submit">Send message</button><div id="result" class="result" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Wiaam Hassan Abdo</span><span><a href="https://github.com/wiaamabdo2006-creator">GitHub</a><a href="https://www.linkedin.com/in/wiaam-abdo-736551387/">LinkedIn</a></span></div></footer>
+
+<dialog id="modal" aria-labelledby="mt">
+  <button class="x" aria-label="Close">×</button>
+  <h3 id="mt"></h3>
+  <p id="md"></p>
+  <ul class="tags" id="mtags"></ul>
+  <p style="margin-top:1.4rem"><a class="btn primary" id="ml" href="#">View on GitHub</a></p>
+</dialog>
+
+<script>
+const projects=[
+ {t:"Gym Management System",d:"A web system for managing gym members and subscriptions.",g:["HTML","CSS","JavaScript","PHP","MySQL"],l:"https://github.com/wiaamabdo2006-creator"},
+ {t:"POS System",d:"A web point-of-sale system for handling sales and checkout.",g:["HTML","CSS","JavaScript","PHP","MySQL"],l:"https://github.com/wiaamabdo2006-creator"},
+ {t:"Service Marketplace App",d:"An Android app that connects customers with service providers.",g:["Android Studio","Kotlin","XML","Firebase"],l:"https://github.com/wiaamabdo2006-creator"}
+];
+const burger=document.querySelector('.burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded',false)}});
+const m=document.getElementById('modal');
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>{
+  const p=projects[c.dataset.i];
+  document.getElementById('mt').textContent=p.t;
+  document.getElementById('md').textContent=p.d;
+  document.getElementById('ml').href=p.l;
+  const ul=document.getElementById('mtags');ul.innerHTML='';
+  p.g.forEach(x=>{const li=document.createElement('li');li.textContent=x;ul.appendChild(li)});
+  m.showModal();
+}));
+m.querySelector('.x').addEventListener('click',()=>m.close());
+m.addEventListener('click',e=>{if(e.target===m)m.close()});
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();const f=new FormData(e.target);
+  const to='wiaamabdo2006@gmail.com',subj='Portfolio message from '+f.get('name'),body=f.get('msg')+'\n\nFrom: '+f.get('name')+' ('+f.get('email')+')';
+  const q='subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body),r=document.getElementById('result');
+  r.hidden=false;r.innerHTML='';
+  const t=document.createElement('p');t.textContent='Your message is ready. Choose how to send it:';r.appendChild(t);
+  const mk=(txt,href)=>{const a=document.createElement('a');a.className='btn';a.textContent=txt;a.href=href;a.target='_blank';a.rel='noopener';r.appendChild(a)};
+  mk('Open in Gmail','https://mail.google.com/mail/?view=cm&to='+to+'&'+q);
+  mk('Open in email app','mailto:'+to+'?'+q);
+  const c=document.createElement('button');c.type='button';c.className='btn';c.textContent='Copy message';
+  c.onclick=()=>{navigator.clipboard.writeText(body).then(()=>{c.textContent='Copied'},()=>{c.textContent='Copy failed'})};r.appendChild(c);
+});
+</script>
+</body>
+</html>
