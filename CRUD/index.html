@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taskboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div>
+        <h1>Tasks</h1>
+        <p id="summary" class="summary" aria-live="polite"></p>
+      </div>
+      <button id="themeBtn" class="btn btn-ghost" type="button">Dark mode</button>
+    </header>
+
+    <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+    <section class="card composer" aria-label="Add a task">
+      <input id="taskText" class="field grow" type="text" maxlength="200" placeholder="Add a new task" aria-label="Task title">
+      <select id="taskCategory" class="field" aria-label="Category">
+        <option>Work</option><option>Personal</option><option>Study</option><option>Other</option>
+      </select>
+      <input id="taskDue" class="field" type="date" aria-label="Due date">
+      <button id="addBtn" class="btn btn-primary" type="button">Add task</button>
+    </section>
+
+    <section class="toolbar" aria-label="Filters">
+      <div class="segmented" role="group" aria-label="Status">
+        <button type="button" data-filter="all" aria-pressed="true">All <span id="countAll"></span></button>
+        <button type="button" data-filter="active" aria-pressed="false">Active <span id="countActive"></span></button>
+        <button type="button" data-filter="completed" aria-pressed="false">Completed <span id="countDone"></span></button>
+      </div>
+      <select id="categoryFilter" class="field" aria-label="Filter by category">
+        <option value="">All categories</option>
+        <option>Work</option><option>Personal</option><option>Study</option><option>Other</option>
+      </select>
+      <input id="searchInput" class="field grow" type="search" placeholder="Search tasks" aria-label="Search tasks">
+    </section>
+
+    <section class="card list-card">
+      <ul id="taskList" class="task-list"></ul>
+    </section>
+
+    <footer class="app-footer">
+      <span>Drag the handle to reorder tasks.</span>
+      <button id="clearBtn" class="btn btn-ghost" type="button">Clear completed</button>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
