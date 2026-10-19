@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skycast: Live Weather</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="default">
+  <main class="app">
+    <header class="top">
+      <h1>Skycast</h1>
+      <div class="unit" role="group" aria-label="Temperature unit">
+        <button type="button" data-unit="C" aria-pressed="true">&deg;C</button>
+        <button type="button" data-unit="F" aria-pressed="false">&deg;F</button>
+      </div>
+    </header>
+
+    <form id="searchForm" class="search" role="search">
+      <input id="cityInput" type="search" placeholder="Search any city, e.g. Beirut, Tokyo, Lima" autocomplete="off" aria-label="City name">
+      <button type="submit">Search</button>
+    </form>
+
+    <div id="status" class="status" aria-live="polite" hidden></div>
+
+    <section id="weather" class="weather" hidden>
+      <div class="panel current">
+        <div class="place">
+          <h2 id="place"></h2>
+          <p id="updated" class="muted"></p>
+        </div>
+        <div class="now">
+          <div id="icon" class="icon"></div>
+          <div>
+            <div id="temp" class="temp"></div>
+            <div id="condition" class="condition"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="metrics" class="metrics"></div>
+
+      <h3 class="section-title">5-day forecast</h3>
+      <div id="forecast" class="forecast"></div>
+    </section>
+
+    <p class="credit">Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
